@@ -1,7 +1,13 @@
-.h1 {
-  color: yellow;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.h2 {
-  font-weight: 1000;
+.container h3 {
+  margin: 0.2rem 0 0;
+}
+
+.container > section {
+  display: flow-root;
 }
