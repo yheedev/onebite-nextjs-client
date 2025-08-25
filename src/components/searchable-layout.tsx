@@ -47,8 +47,8 @@ export default function SearchableLayout({
           placeholder='검색어를 입력하세요.'
         />
         <button onClick={onSubmit}>검색</button>
-        {message && <p style={{ color: "red" }}>{message}</p>}
       </div>
+      {message && <p className={style.message}>{message}</p>}
       {children}
     </div>
   );
