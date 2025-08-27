@@ -24,11 +24,9 @@ export default function SearchableLayout({
     if (!search) {
       setMessage("검색어를 입력하세요.");
       return;
-    } else if (search === q) {
-      setMessage("검색어가 동일합니다.");
-      return;
     }
     router.push(`/search?q=${search}`);
+    !message || setMessage("");
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
