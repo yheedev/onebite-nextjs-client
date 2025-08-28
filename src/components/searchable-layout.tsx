@@ -26,7 +26,6 @@ export default function SearchableLayout({
       return;
     }
     router.push(`/search?q=${search}`);
-    !message || setMessage("");
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
