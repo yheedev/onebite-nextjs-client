@@ -13,7 +13,7 @@ export default function BookItem({
   coverImgUrl,
 }: BookData) {
   return (
-    <Link className={style.container} href={`/book/${id}`}>
+    <Link className={style.container} href={`https://yheedev-books-server-yhees-projects.vercel.app/book/${id}`}>
       <Image width={100} height={100} src={coverImgUrl} alt='book cover' />
       <div>
         {" "}
