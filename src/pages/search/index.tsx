@@ -8,32 +8,17 @@ import { BookData } from "@/types";
 export default function Page() {
   const [books, setBooks] = useState<BookData[]>([]);
   const router = useRouter();
+  const q = router.query.q;
 
-  const qParam = router.query.q;
-  const q = typeof qParam === "string" ? qParam.trim() : "";
+  const fetchSearchResult = async () => {
+    const data = await fetchBooks(q as string);
+    setBooks(data);
+  };
 
   useEffect(() => {
-    if (!q) {
-      setBooks([]);
-      return;
+    if (q) {
+      fetchSearchResult();
     }
-
-    let cancelled = false;
-    const ctrl = new AbortController();
-
-    (async () => {
-      try {
-        const data = await fetchBooks(q, { signal: ctrl.signal });
-        if (!cancelled) setBooks(data);
-      } catch {
-        if (!cancelled) setBooks([]);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-      ctrl.abort();
-    };
   }, [q]);
 
   return (

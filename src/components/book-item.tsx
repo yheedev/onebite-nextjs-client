@@ -14,7 +14,7 @@ export default function BookItem({
 }: BookData) {
   return (
     <Link className={style.container} href={`/book/${id}`}>
-      <Image width={30} height={50} src={coverImgUrl} alt='book cover' />
+      <Image width={100} height={100} src={coverImgUrl} alt='book cover' />
       <div>
         {" "}
         <div className={style.title}>{title}</div>
