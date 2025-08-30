@@ -4,6 +4,7 @@ import fetchBooks from "@/lib/fetch-books";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BookData } from "@/types";
+import Head from "next/head";
 
 export default function Page() {
   const [books, setBooks] = useState<BookData[]>([]);
@@ -23,6 +24,13 @@ export default function Page() {
 
   return (
     <div>
+      <Head>
+        {" "}
+        <title>yheedev Boooks - 검색 결과</title>
+        <meta property='og:image' content='/thumbnail.png' />
+        <meta property='og:title' content='yheedev books' />
+        <meta property='og:description' content='yheedev books - 검색 결과' />
+      </Head>
       {books.map((book) => (
         <BookItem key={book.id} {...book} />
       ))}
