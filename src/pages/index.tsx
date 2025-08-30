@@ -7,19 +7,16 @@ import fetchBooks from "@/lib/fetch-books";
 import fetchRandomBooks from "@/lib/fetch-random-books";
 
 export const getStaticProps = async () => {
-  const [allBooks, recoBooks] = await Promise.all([
-    fetchBooks(),
-    fetchRandomBooks(),
-  ]);
+  console.log("src/index.tsx의 getStaticProps");
+
+  const [allBooks, recoBooks] = await Promise.all([fetchBooks(), fetchRandomBooks()]);
   return {
     props: { allBooks, recoBooks },
+    revalidate: 3,
   };
 };
 
-export default function Home({
-  allBooks,
-  recoBooks,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ allBooks, recoBooks }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className={style.container}>
       <section>

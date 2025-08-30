@@ -28,7 +28,7 @@ export const getStaticPaths = () => {
         params: { id: "3" },
       },
     ],
-    fallback: "true",
+    fallback: "blocking",
   };
 };
 
