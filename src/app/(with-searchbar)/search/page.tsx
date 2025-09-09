@@ -1,9 +1,15 @@
+import ClientComponent from "@/app/components/client-component";
+import ServerComponent from "../../components/server-component";
+
 export default async function Search({ searchParams }: { searchParams: Promise<{ q: string }> }) {
   const { q } = await searchParams;
   return (
     <>
       <h1>search</h1>
       <p>검색 페이지: {q}</p>
+      <ClientComponent>
+        <ServerComponent />
+      </ClientComponent>
     </>
   );
 }

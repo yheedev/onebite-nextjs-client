@@ -1,12 +1,15 @@
+import ServerComponent from "@/app/components/server-component";
+import ClientComponent from "@/app/components/client-component";
+
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
   return (
     <>
       <h1> {id}</h1>
-      <p>[...id] 경로는 book/a1212 뿐 아니라 book/1212/12121/434535/232 대응 가능</p>
-      <p>하지만 /book 경로는 대응ㅇㅣ 되지 않는다</p>
-      <p>/book 경로도 book/1212/12121/434535/232 경로도 대응하려면 [[..id]]를 사용하자</p>
+      <ClientComponent>
+        <ServerComponent />
+      </ClientComponent>
     </>
   );
 }
