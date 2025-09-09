@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "../styles/globals.css";
 
 export const metadata = {
@@ -8,6 +9,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
+      <header>
+        <Link href={"/"}>index</Link>
+        &nbsp;
+        <Link href={"/search"}>search</Link>
+        &nbsp;
+        <Link href={"/book/1"}>book 1</Link>
+      </header>
       <body>{children}</body>
     </html>
   );

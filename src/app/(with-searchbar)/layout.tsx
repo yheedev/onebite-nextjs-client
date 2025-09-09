@@ -1,4 +1,4 @@
-import SearchBar from "./searchBar";
+import SearchBar from "../components/searchBar";
 
 import { ReactNode } from "react";
 
