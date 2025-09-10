@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className={style.container}>
           <header>
-            <Link href={"/"}>📚 yheedev BOOKS</Link>
+            <Link href={"/"}>💭 yheeBOOKS</Link>
           </header>
           <main>{children}</main>
           <footer>@yheedev</footer>
