@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "../styles/globals.css";
+import style from "./layout.module.css";
 
 export const metadata = {
   title: "yheedev Books",
@@ -9,14 +10,15 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <header>
-        <Link href={"/"}>index</Link>
-        &nbsp;
-        <Link href={"/search"}>search</Link>
-        &nbsp;
-        <Link href={"/book/1"}>book 1</Link>
-      </header>
-      <body>{children}</body>
+      <body>
+        <div className={style.container}>
+          <header>
+            <Link href={"/"}>📚 yheedev BOOKS</Link>
+          </header>
+          <main>{children}</main>
+          <footer>@yheedev</footer>
+        </div>
+      </body>
     </html>
   );
 }

@@ -3,15 +3,7 @@ import Link from "next/link";
 import style from "./book-item.module.css";
 import Image from "next/image";
 
-export default function BookItem({
-  id,
-  title,
-  subTitle,
-
-  author,
-  publisher,
-  coverImgUrl,
-}: BookData) {
+export default function BookItem({ id, title, subTitle, author, publisher, coverImgUrl }: BookData) {
   return (
     <Link className={style.container} href={`https://yheedev-books-server-yhees-projects.vercel.app/book/${id}`}>
       <Image width={100} height={100} src={coverImgUrl} alt='book cover' />
