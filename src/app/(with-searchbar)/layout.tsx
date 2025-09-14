@@ -9,7 +9,6 @@ export default function Layout({
 }) {
   return (
     <div>
-      {/* <div>{new Date().toLocaleString()}</div> */}
       <Suspense
         fallback={<div>Loading ... </div>}
       >
