@@ -2,8 +2,6 @@ import BookItem from "../components/book-item";
 import style from "./page.module.css";
 import { BookData } from "@/types";
 
-// export const dynamic = "";
-
 async function AllBooks() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
