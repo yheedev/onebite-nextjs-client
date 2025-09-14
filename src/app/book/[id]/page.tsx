@@ -1,10 +1,20 @@
 import Image from "next/image";
 import style from "./[id].module.css";
+import { notFound } from "next/navigation";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+}
 
 export default async function Page({ params }: { params: Promise<{ id: string | string[] }> }) {
   const { id } = await params;
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`);
   if (!res.ok) {
+    if (res.status === 404) {
+      notFound();
+    }
     return <p>오류가 발생했습니다.</p>;
   }
 

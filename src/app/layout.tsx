@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 async function Footer() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`, { cache: "force-cache" });
   if (!res.ok) {
     return <p>제작 @yheedev</p>;
   }
