@@ -1,8 +1,9 @@
-import BookItem from "../components/book-item";
+import BookItem from "@/components/book-item";
 import style from "./page.module.css";
 import { BookData } from "@/types";
 import { delay } from "@/util/delay";
 import { Suspense } from "react";
+import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
 
 async function AllBooks() {
   await delay(1500);
@@ -55,9 +56,7 @@ export default async function Home() {
         <h3>👍 Best</h3>
         <Suspense
           fallback={
-            <p>
-              추천 도서를 불러오는 중입니다...
-            </p>
+            <BookListSkeleton count={3} />
           }
         >
           <RecoBooks />
@@ -67,9 +66,7 @@ export default async function Home() {
         <h3>📚 All</h3>
         <Suspense
           fallback={
-            <p>
-              모든 도서를 불러오는 중입니다...
-            </p>
+            <BookListSkeleton count={10} />
           }
         >
           <AllBooks />
