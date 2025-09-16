@@ -1,8 +1,7 @@
 import Image from "next/image";
 import style from "./[id].module.css";
 import { notFound } from "next/navigation";
-
-//export const dynamicParams = false;
+import { createReviewAction } from "@/actions/create-review";
 
 export function generateStaticParams() {
   return [{ id: "1" }, { id: "2" }, { id: "3" }];
@@ -35,33 +34,25 @@ async function BookDetail({ bookId }: { bookId: string }) {
   );
 }
 
-function ReviewEditor() {
-  async function createReviewAction(formData: FormData) {
-    "use server";
-
-    const content = formData.get("content")?.toString();
-    const author = formData.get("author")?.toString();
-
-    console.log(content, author);
-  }
-
+function ReviewEditor({ bookId }: { bookId: string }) {
   return (
     <section>
       <form action={createReviewAction}>
-        <input name='content' placeholder='리뷰를 작성해 주세요.' />
-        <input name='author' placeholder='리뷰 작성자' />
+        <input name='bookId' value={bookId} hidden readOnly />
+        <input required name='content' placeholder='리뷰를 작성해 주세요.' />
+        <input required name='author' placeholder='리뷰 작성자' />
         <button type='submit'>작성하기</button>
       </form>
     </section>
   );
 }
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+export default async function Page({ params }: { params: { id: string } }) {
   const resolvedParams = await params;
   return (
     <div className={style.container}>
       <BookDetail bookId={resolvedParams.id} />
-      <ReviewEditor />
+      <ReviewEditor bookId={params.id} />
     </div>
   );
 }
