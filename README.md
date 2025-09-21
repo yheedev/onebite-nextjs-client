@@ -1,22 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[한 입 크기로 잘라먹는 Next.js(v15)](https://www.inflearn.com/course/%ED%95%9C%EC%9E%85-%ED%81%AC%EA%B8%B0-nextjs/dashboard) 강의를 수강한 내용을 기록했습니다.
 
-## Getting Started
+### 실행
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+// git clone
+git clone https://github.com/yheedev/onebite-nextjs-client.git
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+cd onebite-nextjs-client
+code .
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+// 의존성 설치
+npm i
+
+// 개발 서버 가동 (localhost:3000)
+npm run dev
+```
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
