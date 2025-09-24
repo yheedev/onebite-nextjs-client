@@ -10,7 +10,11 @@ export function generateStaticParams() {
 }
 
 async function BookDetail({ bookId }: { bookId: string }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${bookId}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${bookId}`,
+    { cache: "no-store" }
+    // { next: { tags: [`review-${bookId}`] } }
+  );
   if (!res.ok) {
     if (res.status === 404) {
       notFound();
